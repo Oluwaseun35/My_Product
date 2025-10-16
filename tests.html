@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free Subject Assessment | The Mountain Academy</title>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/tooplate-style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <a href="index.html" class="navbar-brand">The Mountain Academy</a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="index.html#home" class="smoothScroll">Back to Home</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ASSESSMENT SECTION -->
+  <section id="assessment" style="margin-top:100px;">
+    <div class="container">
+      <div class="row text-center">
+        <h1>Free Subject Assessment</h1>
+        <p>Select your subject to begin your personalized assessment and discover your current level.</p>
+      </div>
+
+      <!-- SUBJECT SELECTION -->
+      <div class="row text-center" style="margin:20px 0;">
+        <button class="section-btn" onclick="showQuiz('french')">French</button>
+        <button class="section-btn" onclick="showQuiz('english')">English</button>
+        <button class="section-btn" onclick="showQuiz('math')">Mathematics</button>
+        <button class="section-btn" onclick="showQuiz('biology')">Biology</button>
+        <button class="section-btn" onclick="showQuiz('chemistry')">Chemistry</button>
+        <button class="section-btn" onclick="showQuiz('physics')">Physics</button>
+      </div>
+
+      <!-- QUIZ AREA -->
+      <div id="quizArea" class="col-md-8 col-md-offset-2" style="display:none;">
+        <form id="assessmentForm"></form>
+        <div id="assessmentResult" style="margin-top:20px; display:none;">
+          <h2>Your Level:</h2>
+          <p id="resultText"></p>
+          <a href="index.html#contact" class="section-btn">Register with a Tutor</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container text-center">
+      <p>© 2025 The Mountain Academy | <a href="index.html">Back to Home</a></p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <script>
+    const quizzes = {
+      french: {
+        questions: [
+          { q: "How do you say 'Good morning' in French?", options: { a: "Bonsoir", b: "Bonjour", c: "Bonne nuit" }, correct: "b" },
+          { q: "Translate 'Thank you' to French.", options: { a: "Salut", b: "Merci", c: "Au revoir" }, correct: "b" },
+          { q: "Which sentence means 'My name is Anna'?", options: { a: "Je m'appelle Anna", b: "J'ai Anna", c: "Je suis Anna" }, correct: "a" },
+          { q: "What is the French word for 'book'?", options: { a: "Livre", b: "Stylo", c: "Table" }, correct: "a" },
+          { q: "How do you ask 'How are you?' in French?", options: { a: "Comment ça va ?", b: "Où vas-tu ?", c: "Quel âge as-tu ?" }, correct: "a" },
+          { q: "Which of these is a feminine noun in French?", options: { a: "La table", b: "Le livre", c: "Le garçon" }, correct: "a" },
+          { q: "How do you say 'I like music'?", options: { a: "J'aime la musique", b: "Je suis musique", c: "Musique j'aime" }, correct: "a" },
+          { q: "Which of the following is a French color?", options: { a: "Rouge", b: "Blue", c: "Rojo" }, correct: "a" },
+          { q: "Which of these is a correct French greeting?", options: { a: "Salut!", b: "Ciao!", c: "Hello!" }, correct: "a" },
+          { q: "Translate 'See you tomorrow' to French.", options: { a: "À demain", b: "Bonsoir", c: "Bonne nuit" }, correct: "a" }
+        ]
+      },
+      english: {
+        questions: [
+          { q: "Choose the correct sentence.", options: { a: "She go to school.", b: "She goes to school.", c: "She going school." }, correct: "b" },
+          { q: "Which word is the synonym of 'happy'?", options: { a: "Sad", b: "Joyful", c: "Angry" }, correct: "b" },
+          { q: "Select the correct spelling.", options: { a: "Definately", b: "Definitely", c: "Definetly" }, correct: "b" },
+          { q: "Which sentence is in the past tense?", options: { a: "I play football", b: "I played football", c: "I am playing football" }, correct: "b" },
+          { q: "Choose the correct article: ___ apple a day keeps the doctor away.", options: { a: "A", b: "An", c: "The" }, correct: "b" },
+          { q: "Identify the adjective in this sentence: The tall boy ran quickly.", options: { a: "tall", b: "ran", c: "quickly" }, correct: "a" },
+          { q: "Which sentence uses the correct form of 'their'?", options: { a: "There car is new.", b: "Their car is new.", c: "They're car is new." }, correct: "b" },
+          { q: "What is the opposite of 'cold'?", options: { a: "Hot", b: "Cool", c: "Freeze" }, correct: "a" },
+          { q: "Which of these is a question tag?", options: { a: "Isn't it?", b: "That is?", c: "Do it?" }, correct: "a" },
+          { q: "Which of these words is a verb?", options: { a: "Sing", b: "Song", c: "Singer" }, correct: "a" }
+        ]
+      },
+      math: {
+        questions: [
+          { q: "What is 12 × 9?", options: { a: "108", b: "99", c: "109" }, correct: "a" },
+          { q: "Simplify: 15 + (6 ÷ 2)", options: { a: "18", b: "21", c: "20" }, correct: "b" },
+          { q: "Find x if 3x = 12", options: { a: "x = 3", b: "x = 4", c: "x = 6" }, correct: "b" },
+          { q: "What is the square of 7?", options: { a: "14", b: "49", c: "21" }, correct: "b" },
+          { q: "A rectangle has length 10cm and width 5cm. Find its area.", options: { a: "15cm²", b: "50cm²", c: "25cm²" }, correct: "b" },
+          { q: "What is 25% of 200?", options: { a: "50", b: "25", c: "100" }, correct: "a" },
+          { q: "Simplify: 8² - 6²", options: { a: "12", b: "28", c: "28" }, correct: "b" },
+          { q: "If a = 4 and b = 2, what is a³ ÷ b?", options: { a: "4", b: "8", c: "32" }, correct: "b" },
+          { q: "Convert 0.5 to a fraction.", options: { a: "1/5", b: "1/2", c: "2/5" }, correct: "b" },
+          { q: "What is the next prime number after 7?", options: { a: "8", b: "9", c: "11" }, correct: "c" }
+        ]
+      },
+      biology: {
+        questions: [
+          { q: "What is the basic unit of life?", options: { a: "Tissue", b: "Cell", c: "Organ" }, correct: "b" },
+          { q: "Which organ pumps blood through the body?", options: { a: "Lungs", b: "Heart", c: "Liver" }, correct: "b" },
+          { q: "Where does photosynthesis occur?", options: { a: "Leaf", b: "Stem", c: "Root" }, correct: "a" },
+          { q: "Which blood group is the universal donor?", options: { a: "O-", b: "AB+", c: "A+" }, correct: "a" },
+          { q: "The human skeleton provides ___", options: { a: "Energy", b: "Support", c: "Digestion" }, correct: "b" },
+          { q: "What is the function of the lungs?", options: { a: "Pump blood", b: "Exchange gases", c: "Store oxygen" }, correct: "b" },
+          { q: "Humans are:", options: { a: "Herbivores", b: "Omnivores", c: "Carnivores" }, correct: "b" },
+          { q: "Which organ controls all body activities?", options: { a: "Brain", b: "Heart", c: "Liver" }, correct: "a" },
+          { q: "Which part of the cell contains genetic material?", options: { a: "Nucleus", b: "Cytoplasm", c: "Membrane" }, correct: "a" },
+          { q: "Which system breaks down food into nutrients?", options: { a: "Nervous system", b: "Digestive system", c: "Circulatory system" }, correct: "b" }
+        ]
+      },
+      chemistry: {
+        questions: [
+          { q: "What is the chemical formula for water?", options: { a: "H2O", b: "CO2", c: "O2" }, correct: "a" },
+          { q: "Which gas do plants use for photosynthesis?", options: { a: "Carbon dioxide", b: "Oxygen", c: "Nitrogen" }, correct: "a" },
+          { q: "Acids taste ___", options: { a: "Sweet", b: "Sour", c: "Bitter" }, correct: "b" },
+          { q: "Which element is used in making pencils?", options: { a: "Graphite", b: "Copper", c: "Sulphur" }, correct: "a" },
+          { q: "What is the atomic number of oxygen?", options: { a: "6", b: "8", c: "10" }, correct: "b" },
+          { q: "Which of these is a noble gas?", options: { a: "Helium", b: "Nitrogen", c: "Carbon" }, correct: "a" },
+          { q: "What is the pH of pure water?", options: { a: "0", b: "7", c: "14" }, correct: "b" },
+          { q: "Which of these is a chemical change?", options: { a: "Melting ice", b: "Rusting iron", c: "Boiling water" }, correct: "b" },
+          { q: "What is the gas produced when acids react with metals?", options: { a: "Hydrogen", b: "Oxygen", c: "Carbon dioxide" }, correct: "a" },
+          { q: "Which element is essential for combustion?", options: { a: "Nitrogen", b: "Oxygen", c: "Hydrogen" }, correct: "b" }
+        ]
+      },
+      physics: {
+        questions: [
+          { q: "Who discovered the laws of motion?", options: { a: "Newton", b: "Einstein", c: "Galileo" }, correct: "a" },
+          { q: "The SI unit of force is ___", options: { a: "Joule", b: "Newton", c: "Watt" }, correct: "b" },
+          { q: "Light travels fastest in ___", options: { a: "Air", b: "Water", c: "Vacuum" }, correct: "c" },
+          { q: "Which energy is stored in a stretched rubber band?", options: { a: "Kinetic", b: "Potential", c: "Thermal" }, correct: "b" },
+          { q: "Speed is measured in ___", options: { a: "m/s", b: "kg", c: "J" }, correct: "a" },
+          { q: "Which device converts electrical energy into sound?", options: { a: "Bulb", b: "Speaker", c: "Fan" }, correct: "b" },
+          { q: "Which mirror is used in car headlights?", options: { a: "Concave", b: "Convex", c: "Plane" }, correct: "a" },
+          { q: "What type of energy does a moving car have?", options: { a: "Kinetic", b: "Potential", c: "Chemical" }, correct: "a" },
+          { q: "Which color of light has the highest energy?", options: { a: "Red", b: "Green", c: "Violet" }, correct: "c" },
+          { q: "Electric current is measured using a ___", options: { a: "Voltmeter", b: "Ammeter", c: "Barometer" }, correct: "b" }
+        ]
+      }
+    };
+
+    function showQuiz(subject) {
+      const quiz = quizzes[subject];
+      const form = document.getElementById("assessmentForm");
+      form.innerHTML = "";
+      document.getElementById("assessmentResult").style.display = "none";
+      form.style.display = "block";
+      document.getElementById("quizArea").style.display = "block";
+
+      quiz.questions.forEach((item, i) => {
+        let html = `<div class='question'><h4>${i + 1}. ${item.q}</h4>`;
+        for (let key in item.options) {
+          html += `<label><input type='radio' name='q${i}' value='${key}'> ${item.options[key]}</label><br>`;
+        }
+        html += "</div><hr>";
+        form.innerHTML += html;
+      });
+
+      form.innerHTML += `<button type="button" class="section-btn" onclick="checkAssessment('${subject}')">Submit Assessment</button>`;
+    }
+
+    function checkAssessment(subject) {
+      const quiz = quizzes[subject];
+      let score = 0;
+
+      quiz.questions.forEach((item, i) => {
+        const userAnswer = document.querySelector(`input[name="q${i}"]:checked`);
+        if (userAnswer && userAnswer.value === item.correct) score++;
+      });
+
+      const result = document.getElementById("assessmentResult");
+      const text = document.getElementById("resultText");
+      let level = "";
+
+      if (score >= 8) level = `Advanced 🎓 – Excellent understanding of ${subject}! Keep it up.`;
+      else if (score >= 5) level = `Intermediate 🌱 – You have a solid grasp of ${subject}, but there's room to grow.`;
+      else level = `Beginner 🌍 – Let’s start building your foundation in ${subject}.`;
+
+      text.innerText = `You scored ${score} out of 10.\n${level}`;
+      result.style.display = "block";
+      document.getElementById("assessmentForm").style.display = "none";
+    }
+  </script>
+</body>
+</html>
