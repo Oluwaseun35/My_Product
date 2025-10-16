@@ -1,1 +1,1 @@
-This is a personal testing project landing page.
+This is a personal project for a landing page.
