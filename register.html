@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +23,7 @@
       background: #fff;
       padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
@@ -37,7 +38,8 @@
       font-weight: 600;
     }
 
-    form input, form select {
+    form input,
+    form select {
       width: 100%;
       padding: 12px;
       margin-bottom: 20px;
@@ -47,7 +49,8 @@
       transition: 0.3s;
     }
 
-    form input:focus, form select:focus {
+    form input:focus,
+    form select:focus {
       border-color: #0056b3;
       box-shadow: 0 0 4px rgba(0, 86, 179, 0.3);
       outline: none;
@@ -89,7 +92,8 @@
 <body>
   <div class="container">
     <h2>Register & Pay - The Mountain Academy</h2>
-    <p style="text-align:center;">Fill the form below to register. After payment, you’ll receive a confirmation email instantly.</p>
+    <p style="text-align:center;">Fill the form below to register. After payment, you’ll receive a confirmation email
+      instantly.</p>
 
     <form id="registerForm">
       <label for="name">Full Name:</label>
@@ -193,22 +197,23 @@
     });
 
     function sendEmail(name, email, phone, subject, amount) {
-      emailjs.send("service_my07g4k", "template_mnq9ajc", {
+      emailjs.send("service_my07g4k", "template_hck76xh", {
         name: name,
         email: email,
         phone: phone,
         subject: subject,
         amount: amount,
       })
-      .then(function (response) {
-        console.log("Email sent!", response.status, response.text);
-        document.getElementById("message").style.display = "block";
-        form.reset();
-      }, function (error) {
-        console.log("FAILED...", error);
-        alert("❌ Error sending confirmation email. Please contact support.");
-      });
+        .then(function (response) {
+          console.log("Email sent!", response.status, response.text);
+          document.getElementById("message").style.display = "block";
+          form.reset();
+        }, function (error) {
+          console.log("FAILED...", error);
+          alert("❌ Error sending confirmation email. Please contact support.");
+        });
     }
   </script>
 </body>
+
 </html>
