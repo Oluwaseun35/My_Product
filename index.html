@@ -16,6 +16,16 @@
      <meta name="description" content="Quality online learning for French, English, Mathematics and Science. We help students build confidence, master skills and achieve academic success.">
      <meta name="keywords" content="Mountain Academy, online education, training, online tutorial, tutoring in nigeria and worldwide">
      <meta name="team" content="">
+     
+     <!-- Open Graph / Facebook -->
+     <meta property="og:type" content="website">
+     <meta property="og:url" content="https://themountainacademy.com.ng"> <!-- Replace with your actual website URL -->
+     <meta property="og:title" content="The Mountain Academy - Quality Online Learning">
+     <meta property="og:description" content="Quality online learning for French, English, Mathematics and Science. We help students build confidence, master skills and achieve academic success.">
+     <!-- <meta property="og:image" content="YOUR_IMAGE_URL_HERE"> --> <!-- Add your image URL here when ready -->
+ 
+     <!-- Twitter -->
+     <meta property="twitter:card" content="summary_large_image">
      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
      <meta name="author" content="Bankole Bolarinwa">
 
@@ -80,7 +90,7 @@
                     <div class="col-md-offset-3 col-md-6 col-sm-12">
                          <div class="home-info">
                               <h3>Welcome To The Mountain Academy virtual classes</h3>
-                              <h1>Unlock your potential with mastery in French language, Mathemathics, English language,
+                              <h1>Unlock your potential with mastery in French language, Mathematics, English language,
                                    Biology, Chemistry, and Physics.</h1>
 
                          </div>
@@ -145,23 +155,23 @@
                                         <h2>Available Language Courses</h2>
                                         <ul class="subject-list">
                                              <li>
-                                                  <bold>French</bold>
+                                                  <strong>French</strong>
                                              </li>
                                              <li>
-                                                  <bold>English</bold>
+                                                  <strong>English</strong>
                                              </li>
                                              <li>
-                                                  <bold>Yoruba</bold>
+                                                  <strong>Yoruba</strong>
                                              </li>
                                         </ul>
                                         <h2> Coming Soon: More Languages</h2>
 
                                         <ul class="subject-list">
                                              <li>
-                                                  <bold>German</bold>
+                                                  <strong>German</strong>
                                              </li>
                                              <li>
-                                                  <bold>Chinese</bold>
+                                                  <strong>Chinese</strong>
                                              </li>
                                         </ul>
                                    </div>
@@ -185,13 +195,13 @@
                                         <h2>Available Science Courses</h2>
                                         <ul class="subject-list">
                                              <li>
-                                                  <bold>Biology</bold>
+                                                  <strong>Biology</strong>
                                              </li>
                                              <li>
-                                                  <bold>Chemistry</bold>
+                                                  <strong>Chemistry</strong>
                                              </li>
                                              <li>
-                                                  <bold>Physics</bold>
+                                                  <strong>Physics</strong>
                                              </li>
                                         </ul>
 
@@ -210,19 +220,19 @@
                                         <h2>Available Math Courses</h2>
                                         <ul class="subject-list">
                                              <li>
-                                                  <bold>Algebra</bold>
+                                                  <strong>Algebra</strong>
                                              </li>
                                              <li>
-                                                  <bold>Geometry</bold>
+                                                  <strong>Geometry</strong>
                                              </li>
                                              <li>
-                                                  <bold>Trigonometry</bold>
+                                                  <strong>Trigonometry</strong>
                                              </li>
                                              <li>
-                                                  <bold>Calculus</bold>
+                                                  <strong>Calculus</strong>
                                              </li>
                                              <li>
-                                                  <bold>Statistics</bold>
+                                                  <strong>Statistics</strong>
                                              </li>
                                         </ul>
                                    </div>
@@ -477,14 +487,14 @@
 
                     <div class="copyright-text col-md-12 col-sm-12">
                          <div class="col-md-6 col-sm-6">
-                              <p>Copyright &copy; 2025 The Mountain Academy - Design:
-                                   <a rel="nofollow" href=" https://linktr.ee/Frenchifyme">Bankole Bolarinwa</a>
+                              <p>Copyright &copy; <span id="copyright-year"></span> The Mountain Academy - Design:
+                                   <a rel="nofollow" href="https://linktr.ee/Frenchifyme">Bankole Bolarinwa</a>
                               </p>
                          </div>
 
                          <div class="col-md-6 col-sm-6">
                               <ul class="social-icon">
-                                   <li><a href="#" class="fa fa-facebook-square" attr="facebook icon"></a></li>
+                                   <li><a href="#" class="fa fa-facebook-square" title="facebook icon"></a></li>
                                    <li><a href="#" class="fa fa-twitter"></a></li>
                                    <li><a href="#" class="fa fa-instagram"></a></li>
                               </ul>
@@ -503,6 +513,10 @@
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
      <script src="js/custom.js"></script>
+
+     <script>
+          document.getElementById('copyright-year').textContent = new Date().getFullYear();
+     </script>
 
 </body>
 
